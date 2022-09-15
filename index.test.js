@@ -21,7 +21,8 @@ test('getDeploymentUrl() should return a Vercel build', async () => {
           state: 'READY',
           meta: {
             githubCommitRef: 'fix/huge-bug',
-            githubCommitRepo: 'zentered'
+            githubCommitRepo: 'zentered',
+            githubBranch = '123'
           }
         }
       ]
@@ -32,7 +33,7 @@ test('getDeploymentUrl() should return a Vercel build', async () => {
   const { url, state } = await getDeploymentUrl(
     '123xyz',
     'zentered',
-    'fix/huge-bug',
+    '123',
     'zentered.co'
   )
 
@@ -63,7 +64,7 @@ test('getDeploymentUrl() should fail if there are no matching builds', async () 
           state: 'READY',
           meta: {
             githubCommitRef: 'does-not-exist',
-            githubCommitRepo: 'zentered'
+            githubCommitRepo: 'zentered',
           }
         }
       ]
