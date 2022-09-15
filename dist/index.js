@@ -47,7 +47,7 @@ module.exports = /******/ (() => {
         const builds = data.deployments.filter((deployment) => {
           return (
             deployment.meta.githubCommitRepo === repo &&
-            deployment.meta.githubCommitRef === branch
+            deployment.meta.githubPrId === branch
           )
         })
 
@@ -72,7 +72,7 @@ module.exports = /******/ (() => {
           const vercelToken = process.env.VERCEL_TOKEN
           const githubRef = process.env.GITHUB_REF
           const githubProject = process.env.GITHUB_REPOSITORY
-          const githubBranch = githubRef.replace('refs/heads/', '')
+          const githubBranch = githubRef.replace(/\D/g,'')
           const githubRepo = githubProject.split('/')[1]
           const teamId = core.getInput('vercel_team_id')
           const projectId = core.getInput('vercel_project_id')
