@@ -22,7 +22,7 @@ test('getDeploymentUrl() should return a Vercel build', async () => {
           meta: {
             githubCommitRef: 'fix/huge-bug',
             githubCommitRepo: 'zentered',
-            githubBranch = '123'
+            githubBranch: '123'
           }
         }
       ]
