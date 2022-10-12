@@ -36,7 +36,7 @@ export default async function getDeploymentUrl(
   const builds = data.deployments.filter((deployment) => {
     return (
       deployment.meta.githubCommitRepo === repo &&
-      deployment.meta.githubPrId === branch
+      deployment.meta.githubCommitSha === branch
     )
   })
 
